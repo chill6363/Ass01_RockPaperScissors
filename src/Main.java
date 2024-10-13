@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,10 +10,12 @@ public class Main {
         boolean input2;
         String trash;
 
+        //encases entire game. can replay indefinitely
         do{
             input1 = false;
             input2 = false;
             System.out.println("Battle Start!");
+            //Player A input
             do{
                 System.out.print("Input Player A's move (R, P, or S): ");
                 if(in.hasNext("R") || in.hasNext("r") || in.hasNext("P") || in.hasNext("p") || in.hasNext("S") || in.hasNext("s")){
@@ -27,7 +28,7 @@ public class Main {
                     System.out.println("Invalid input of: " + trash);
                 }
             } while(!input1);
-            System.out.println("Here");
+            //Player B input
             do{
                 System.out.print("Input Player B's move (R, P, or S): ");
                 if(in.hasNext("R") || in.hasNext("r") || in.hasNext("P") || in.hasNext("p") || in.hasNext("S") || in.hasNext("s")){
@@ -40,44 +41,56 @@ public class Main {
                     System.out.println("Invalid input of: " + trash);
                 }
             } while(!input2);
-
+            //all possible outcomes
+            //if player A chose Rock
             if(playerA.equalsIgnoreCase("R")){
+                //if player B chose Rock
                 if(playerB.equalsIgnoreCase("R")){
                     System.out.println("Player A chose Rock! Player B chose Rock! Begin!");
                     System.out.println("Both players chose Rock. Its a tie!");
                 }
+                //if player B chose Paper
                 else if(playerB.equalsIgnoreCase("P")){
                     System.out.println("Player A chose Rock! Player B chose Paper! Begin!");
                     System.out.println("Player B beats Player A with Paper!");
                 }
+                //if player B chose Scissors
                 else if(playerB.equalsIgnoreCase("S")){
                     System.out.println("Player A chose Rock! Player B chose Scissors! Begin!");
                     System.out.println("Player A beats Player B with Rock!");
                 }
             }
+            //if player A chose Paper
             else if(playerA.equalsIgnoreCase("P")){
+                //if player B chose Rock
                 if(playerB.equalsIgnoreCase("R")){
                     System.out.println("Player A chose Paper! Player B chose Rock! Begin!");
                     System.out.println("Player A beats Player B with Paper!");
                 }
+                //if player B chose Paper
                 else if(playerB.equalsIgnoreCase("P")){
                     System.out.println("Player A chose Paper! Player B chose Paper! Begin!");
                     System.out.println("Both players chose Paper. Its a tie!");
                 }
+                //if player B chose Scissors
                 else if(playerB.equalsIgnoreCase("S")){
                     System.out.println("Player A chose Paper! Player B chose Scissors! Begin!");
                     System.out.println("Player B beats Player A with Scissors!");
                 }
             }
+            //if player A chose Scissors
             else if(playerA.equalsIgnoreCase("S")){
+                //if player B chose Rock
                 if(playerB.equalsIgnoreCase("R")){
                     System.out.println("Player A chose Scissors! Player B chose Rock! Begin!");
                     System.out.println("Player B beats Player A with Rock!");
                 }
+                //if player B chose Paper
                 else if(playerB.equalsIgnoreCase("P")){
                     System.out.println("Player A chose Scissors! Player B chose Paper! Begin!");
                     System.out.println("Player A beats Player B with Scissors!");
                 }
+                //if player B chose Scissors
                 else if(playerB.equalsIgnoreCase("S")){
                     System.out.println("Player A chose Scissors! Player B chose Scissors! Begin!");
                     System.out.println("Both players chose Scissors. Its a tie!");
